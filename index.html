@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Autômato com Pilha</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Autômato com Pilha</h1>
+    </header>
+    <section>
+        <div>
+            <h3>Descrição Formal</h3>
+            <p>
+                <strong>E</strong>(estados) = {
+                    <p id="est"></p>
+                }
+                <input type="text" name="" id="txtest" maxlength="2" size="2">
+                <input type="button" value="Adicionar" onclick="addEstado()">
+                <br>
+            </p>
+            <p>
+                <strong>Σ</strong>(símbolos de entrada) = {
+                    <p id="siment"></p>
+                }
+                <input type="text" name="" id="txtsiment" maxlength="1" size="2">
+                <input type="button" value="Adicionar" onclick="addSimEnt()">
+                <br>
+            </p>
+            <p>
+                <strong>i</strong>(estado inicial) = 
+                <select name="" id="ini" class="est"></select>
+                <br>
+            </p>
+            <p>
+                <strong>Г</strong>(símbolos auxiliares) = {
+                <p id="aux"></p>
+                }
+                <input type="text" name="" id="txtaux" maxlength="1" size="2">
+                <input type="button" value="Adicionar" onclick="addAuxiliares()">
+                <br>
+            </p>
+            <p>
+                <strong>Base</strong>(símbolo inicial) = 
+                <select name="" id="bas" class="aux"></select>
+                <br>
+            </p>
+            <p>
+                <strong>δ</strong>(função de transição) = 
+                δ(
+                    <select name="tra" id="init" class="est"></select>, 
+                    <select name="tra" id="sent" class="ent"></select>, 
+                    <select name="tra" id="saux" class="aux"></select>
+                ) = ( 
+                    <select name="tra" id="iinit" class="est"></select>, 
+                    <p id="inc">
+                        <select name="tra" id="ssaux" class="aux"></select>
+                    </p>
+                    <input type="button" value="+" id="" onclick="createTrans()">
+                )
+                <input type="button" value="Adicionar" onclick="printTrans()">
+                <ul id="printt">
+                    <!--
+                    <li>aaa</li>
+                    <li>bbb</li>
+                    -->
+                </ul>
+            </p>
+        </div>
+        <div id="pal">
+            <p>
+                <strong>Palavra: </strong>
+                <input type="text" name="" id="paltxt">
+                <input type="button" value="Adicionar" onclick="addPal()">
+                <br>
+            </p>
+            <p>
+                <select multiple name="" id="smul" size="6"></select>
+                <input type="button" value="Testar" onclick="testar()">
+                <br>
+            </p>
+            <p id="res">
+                
+            </p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; ViniTheDev</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

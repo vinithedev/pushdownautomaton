@@ -133,7 +133,7 @@ function testar() {
     var z
     var topo
 
-    estAtual = estInicial
+    //estAtual = estInicial
     
     var res = document.getElementById('res')
     res.innerHTML = ''
@@ -141,29 +141,31 @@ function testar() {
     
     for(var i = 0; i<palavras.length; i++) { // loop de cada palavra
         pilha = [base]
+        estAtual = estInicial
         for(var n = 0; n<palavras[i].length; n++) { // loop de cada letra
             topo = pilha[pilha.length-1]
             z = 'n'
             for(var x = 0; x<ftrans.length; x++) { // loop de cada transição
                 if( ( estAtual == ftrans[x][0] ) && ( palavras[i][n] == ftrans[x][1] ) && ( topo == ftrans[x][2] ) ) {
+                    console.log(`1) palavra = ${palavras[i]} | pilha = ${pilha}`)
                     estAtual = ftrans[x][3]
                     pilha.pop()
                     for(var y = 4; y<ftrans[x].length; y++) {
-                        if(ftrans[x][y] != 'λ')
-                        pilha.push(ftrans[x][y])
-                        console.log(`palavra = ${palavras[i]} | pilha = ${pilha}`)
+                        if(ftrans[x][y] != 'λ') pilha.push(ftrans[x][y])
+                        console.log(`2) palavra = ${palavras[i]} | pilha = ${pilha}`)
                     }
                     z = 'fez'
+                    break
                 }
             }
             if(z != 'fez') break
         }
         
-        console.log(`palavra = ${palavras[i]} | pilha = ${pilha}`)
+        console.log(`3) palavra = ${palavras[i]} | pilha = ${pilha}`)
         if(pilha.length == 0 || (pilha == 'λ' && pilha.length == 1 && z == 'fez')) {
-            res.innerHTML += `<p>${palavras[i]} = ACEITA!</p><br>`
+            res.innerHTML += `<p id="cgreen">${palavras[i]} = ACEITA!</p><br>`
         } else {
-            res.innerHTML += `<p>${palavras[i]} = RECUSA!</p><br>`
+            res.innerHTML += `<p id="cred">${palavras[i]} = RECUSA!</p><br>`
         }
         
     }
